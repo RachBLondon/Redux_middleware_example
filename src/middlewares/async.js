@@ -6,12 +6,28 @@ export default function({ dispatch }){
         return next(action)
       }
       //make sure the actions promise resolves
-
       action.payload
-        .then(function(repsonse){
-          const newAction = { ...action, payload: response }
+        .then(function(response){
+          const newAction = { ...action, payload : response };
           dispatch(newAction);
         });
-    // console.log('We a have a promise', action);
+
   }
 }
+
+
+// //In ES5
+// export default function ({ dispatch }){
+//   return function(next){
+//     return function (action){
+//       if(!action.payload || !action.payload.then){
+//         return next(action)
+//       }
+//       action.payload
+//         .then(function(response){
+//           const newAction = { ...action, payload : response };
+//           dispatch(newAction);
+//         });
+//     }
+//   }
+// }

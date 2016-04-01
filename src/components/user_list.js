@@ -11,7 +11,7 @@ class UserList extends Component {
     return (
       <div className="card card-block">
         <h4 className="card-title">{user.name}</h4>
-        <p className="card-text">JavaScript Factory </p>
+        <p className="card-text">{user.company.name}</p>
         <a className="btn btn-primar"> Email </a>
       </div>
     );
